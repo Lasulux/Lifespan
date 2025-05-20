@@ -7,11 +7,21 @@ source("301.functions.r")
 
 
 ## 310-script
+# loading data
 PATHS <- Create.Folders( "omega-Wand__.n0000" )
 HOLDER <- Load.Subset.Wrapper( Tag="omega-Wand__.n0000", LSubset=TRUE )
+# load model (Generalised Gamma (altered) outcome distribution)
 HOLDER$MODEL <- readRDS( file.path( PATHS$MODEL, "base200.GGalt.fp.rds" ) )
 EXTRACT <- Extract.Wrapper( HOLDER, Store.Full=TRUE ) ## store full fitting object to use as initial point of bfpNA() re-fit [expect 12 iterations]
 summary(EXTRACT$FIT.FULL) ## standard summary of a GAMLSS fit
+
+# RS() is shorthand for the Rigby–Stasinopoulos smoothing method, which is a non-linear, penalized spline-based smoother used to flexibly fit smooth curves to data.
+#    Global Deviance: A measure of model fit (lower is better).
+#    AIC (Akaike Information Criterion): Used for model comparison (lower is better).
+#    SBC (Schwarz Bayesian Criterion): Similar to AIC but penalizes model complexity more heavily.
+# Parameters mu: location, sigma: scale, nu: shape, tau: skewness
+
+
 getSmo(EXTRACT$FIT.FULL,what="mu")
 getSmo(EXTRACT$FIT.FULL,what="mu")$power
 

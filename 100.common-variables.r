@@ -2,9 +2,9 @@
 ## Set up common variables across scripts
 ##
 
-RDS.DIR <- file.path( ".", "RDS" ) ## Where output files are saves
+RDS.DIR <- file.path( "/home/lassub/TTK/Lifespan/Share/tutorial", "RDS" ) ## Where output files are saves
 
-RAW.DIR <- file.path( ".", "CSV" )
+RAW.DIR <- file.path( "/home/lassub/TTK/Lifespan/Share/tutorial", "CSV" )
 
 ##
 ## The switch below will not work on Windows, and may have some issues.
